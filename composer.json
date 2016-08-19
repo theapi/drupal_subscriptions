@@ -3,8 +3,22 @@
   "description": "Experimental setup for a subscriptions site.",
   "type": "drupal-module",
   "license": "GPL-2.0+",
-    "require": {
-        "drupal/domain": "^1.0",
-        "drupal/paragraphs": "^1.0"
-    }
+  "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+  },
+  "extra": {
+        "installer-paths": {
+            "docroot/sites/default/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ]
+        }
+  },
+  "require": {
+    "composer/installers": "^1.0",
+    "drupal/domain": "^1.0",
+    "drupal/paragraphs": "^1.0"
+  }
 }
