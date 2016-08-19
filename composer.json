@@ -1,0 +1,11 @@
+{
+  "name": "theapi/drupal_subscriptions",
+  "description": "Experimental setup for a subscriptions site.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+    "require": {
+        "cweagans/composer-patches": "^1.5.0",
+        "drupal/domain": "^1.0",
+        "drupal/paragraphs": "^1.0"
+    }
+}
