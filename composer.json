@@ -5,22 +5,43 @@
   "license": "GPL-2.0+",
   "minimum-stability": "dev",
   "prefer-stable": true,
-  "repositories": {
-        "drupal": {
+  "repositories": [
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/theapi/drupal_base"
         }
-  },
-  "extra": {
+  ],
+  "scripts": {
+        "post-install-cmd": [
+            "@composer drupal-scaffold"
+        ],
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+    },
+    "extra": {
         "installer-paths": {
-            "modules/contrib/{$name}": [
-                "type:drupal-module"
-            ]
+            "docroot/core": ["drupal/core"],
+            "profiles/contrib/{$name}": ["type:drupal-profile"],
+            "modules/contrib/{$name}": ["type:drupal-module"],
+            "themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "patches": {
         }
-  },
+    },
   "require": {
-    "composer/installers": "^1.0",
+    "theapi/drupal_base": "@dev",
     "drupal/domain": "^1.0",
     "drupal/paragraphs": "^1.0"
-  }
+  },
+      "require-dev": {
+        "drush/drush": "^9.0",
+        "drupal-composer/drupal-scaffold": "^2.0.0",
+        "phpunit/phpunit": "~4.8",
+        "squizlabs/php_codesniffer": "2.*",
+        "drupal/devel": "^1.0"
+    }
 }
