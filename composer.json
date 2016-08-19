@@ -3,6 +3,8 @@
   "description": "Experimental setup for a subscriptions site.",
   "type": "drupal-module",
   "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "repositories": {
         "drupal": {
             "type": "composer",
@@ -11,7 +13,7 @@
   },
   "extra": {
         "installer-paths": {
-            "docroot/sites/default/modules/contrib/{$name}": [
+            "modules/contrib/{$name}": [
                 "type:drupal-module"
             ]
         }
